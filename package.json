@@ -1,0 +1,14 @@
+{
+  "name": "nosql",
+  "version": "1.0.0",
+  "description": "**Démarrage du Replica Set avec Docker**",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Julia Grossi",
+  "license": "ISC",
+  "dependencies": {
+    "faker": "^6.6.6"
+  }
+}
