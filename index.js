@@ -1,16 +1,38 @@
+const generateUsers = require('./generateData')
+console.log("----------")
 const express = require('express')
 const app = express()
-// Import de Faker
-const faker = require('faker');
-const generateUsers = require('./generateData');
+const connectToDatabase = require('./mongoConnection')
 
-// Définir les routes et les middleware ici
+// API CRUD 
+// GET /users
+app.get('/users', async (req, res) => {
+    const db = await connectToDatabase()
+    const collection = db.collection('users')
 
-generateUsers(20)
+    const users = await collection.find({}).toArray()
+    res.json(users)
+})
+
+// GET /oldUsers
+app.get('/oldUsers', (req, res) => {
+
+})
+
+// PUT /agingUsers
+app.put('/agingUsers', (req, res) => {
+
+})
+
+// DELETE /users/:id
+app.delete('/users/:id', (req, res) => {
+
+})
+
 
 
 // Démarrer le serveur
-const port = 3000;
+const port = 3000
 app.listen(port, () => {
     console.log(`Le serveur est en cours d'exécution sur le port ${port}`)
 })

@@ -4,11 +4,14 @@
   "description": "**Démarrage du Replica Set avec Docker**",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "author": "Julia Grossi",
   "license": "ISC",
   "dependencies": {
-    "faker": "^6.6.6"
+    "express": "^4.19.2",
+    "fs": "^0.0.1-security",
+    "mongodb": "^6.5.0"
   }
 }
