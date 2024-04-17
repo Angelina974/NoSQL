@@ -1,8 +1,9 @@
 const { MongoClient } = require('mongodb')
 
-// Remplacez l'URL par votre propre chaîne de connexion MongoDB
-const url = 'mongodb://172.20.0.2:27017'
-const dbName = 'dataBase'
+// URL de connexion à la base de données
+const url = "mongodb://127.0.0.1:27017"
+const dbName = 'users'
+let dbInstance
 
 // Fonction pour initialiser la connexion
 async function connectToDatabase() {
@@ -12,10 +13,8 @@ async function connectToDatabase() {
     }
 
     try {
-        const client = new MongoClient(url, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-        })
+        // Connexion à la base de données
+        const client = new MongoClient(url)
 
         await client.connect()
         console.log('Connecté à MongoDB.')
@@ -24,6 +23,7 @@ async function connectToDatabase() {
         dbInstance = db
         return db
     } catch (error) {
+        // Gestion des erreurs
         console.error('Erreur lors de la connexion à MongoDB:', error)
         throw error
     }
